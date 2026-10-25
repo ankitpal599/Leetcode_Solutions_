@@ -1,0 +1,45 @@
+#Given an integer x,return true if x is a palindrome and false otherwise.
+#LOGIC:
+#1. Firstly store the original number in original_num.
+#2. Then initialize with reversed_num = 0
+#3. If x < 0, return false because negative numbers are not palindrome.
+#4. Repeat while x > 0...
+#          Extract last  digit using x % 10
+#          Add the digit to reversed number by using reversed_num = reversed_num * 10 + remainder
+#          Remove last digit using x \\= 10
+#5. Now compare original_num with reversed_num
+#6. If both numbers are equal the return true otherwise return false 
+#PSEUDOCODE:
+# START 
+# INPUT x
+# original_num = x
+# reversed_num = 0
+# IF x < 0
+#    RETURN False
+# WHILE X > 0 
+#   remainder = x % 10
+#   reversed_num = reversed_num * 10 + remainder
+#   x = x // 10
+# IF original_num == reversed_num
+#    RETURN True
+# ELSE 
+#    RETURN False
+# END  
+#SOLUTION:
+class Solution(object):
+    def isPalindrome(self, x):
+        """
+        :type x: int
+        :rtype: bool
+        """
+        original_num = x
+        reversed_num = 0
+        if x < 0:
+             return False
+        while x > 0:
+            remainder = x % 10
+            reversed_num = reversed_num * 10 + remainder
+            x //= 10
+        return original_num == reversed_num
+        
+        
